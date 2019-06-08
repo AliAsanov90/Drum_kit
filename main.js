@@ -1,5 +1,6 @@
 
-document.addEventListener('keyup', playSound);
+const keys = document.querySelectorAll('.key');
+
 function playSound(e) {
   let key = document.querySelector(`div[data-key="${e.keyCode}"]`);
   let audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
@@ -9,10 +10,10 @@ function playSound(e) {
   key.classList.add('playing');
 }
 
-let keys = document.querySelectorAll('.key');
-
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 function removeTransition(e) {
   if (e.propertyName !== 'transform') return;
   e.target.classList.remove('playing');
 }
+
+window.addEventListener('keyup', playSound);
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
