@@ -1,0 +1,8 @@
+
+body {
+    background-color: #999999;
+    background-image: url('img/back.jpg');
+    background-repeat: no-repeat;
+    background-position: top -190px center;
+    background-size: cover;
+}
